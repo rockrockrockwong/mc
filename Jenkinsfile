@@ -42,7 +42,7 @@ pipeline {
 				dir(path: "./eurekaserver") {
 				    bat "dir" 
 				    bat "mvn clean"
-				    bat "mvn build"
+				    bat "mvn package"
 				}
             }
         }
