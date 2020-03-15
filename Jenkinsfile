@@ -8,6 +8,7 @@ pipeline {
 	tools {
         //工具名称必须在Jenkins 管理Jenkins → 全局工具配置中预配置。
         maven 'maven3.6.3'
+		jdk 'jdk8'
     } 
 
     stages {
