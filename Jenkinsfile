@@ -39,9 +39,11 @@ pipeline {
             steps {
                 echo "maven build"
                 bat "mvn -version"
-				bat "cd ./eurekaserver"
-				bat "mvn clean"
-				bat "mvn build"
+				dir(path: "./eurekaserver") {
+				    bat "dir" 
+				    bat "mvn clean"
+				    bat "mvn build"
+				}
             }
         }
 
