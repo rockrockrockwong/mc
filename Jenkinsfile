@@ -38,7 +38,7 @@ pipeline {
         stage('maven-build') {
             steps {
                 echo "maven build"
-                sh "mvn -version"
+                bat "mvn -version"
             }
         }
 
