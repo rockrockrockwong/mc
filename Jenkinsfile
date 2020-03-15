@@ -23,7 +23,7 @@ pipeline {
         stage('git-eurekaserver') {
             steps {
                 echo "get code from git"
-                dir(path: "./eurekaserver") {
+                dir(path: "./") {
                     git(
                         branch: "master",
                         credentialsId: "rockOnGithub",
