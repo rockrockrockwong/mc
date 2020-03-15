@@ -1,5 +1,14 @@
 pipeline {
     agent any
+	
+	triggers {
+        cron('H */4 * * 1-5')
+    }
+	
+	tools {
+        //工具名称必须在Jenkins 管理Jenkins → 全局工具配置中预配置。
+        maven 'maven3.6.3'
+    } 
 
     stages {
 	
