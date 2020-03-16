@@ -25,12 +25,13 @@ pipeline {
             steps {
                 echo "get code from git"
                 dir(path: "./") {
-                    git(
-                        branch: "master",
-                        credentialsId: "rockOnGithub",
-                        url: 'https://github.com/rockrockrockwong/mc.git',
-                        changelog: true
-                        )
+                    //git(
+                    //    branch: "master",
+                    //    credentialsId: "rockOnGithub",
+                    //    url: 'https://github.com/rockrockrockwong/mc.git',
+                    //    changelog: true
+                    //    )
+					checkout scm
                 }
             }
         }
