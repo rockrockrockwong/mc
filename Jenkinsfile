@@ -9,6 +9,7 @@ pipeline {
         //工具名称必须在Jenkins 管理Jenkins → 全局工具配置中预配置。
         maven 'maven3.6.3'
 		jdk 'jdk8'
+		docker 'docker'
     } 
 
     stages {
@@ -31,23 +32,31 @@ pipeline {
                     //    url: 'https://github.com/rockrockrockwong/mc.git',
                     //    changelog: true
                     //    )
+					//以上可以使用如下定义，不需要另外写git命令
 					checkout scm
                 }
             }
         }
 
 
-        stage('maven-build') {
-            steps {
-                echo "maven build"
-                bat "mvn -version"
-				dir(path: "./eurekaserver") {
-				    bat "dir" 
-				    bat "mvn clean"
-				    bat "mvn package"
-				}
-            }
-        }
+        //stage('maven-build') {
+        //    steps {
+        //        echo "maven build"
+        //        bat "mvn -version"
+		//		dir(path: "./eurekaserver") {
+		//		    bat "dir" 
+		//		    bat "mvn clean"
+		//		    bat "mvn package"
+		//		}
+        //    }
+        //}
+		
+		stage('docker-build') {
+		    steps {
+				echo "docker build"
+				bat "docker --version"
+			}
+		}
 
     }
 
